@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart India Hackathon Teams</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<div>
+<header>Smart India Hackathon Teams IIT-M</header>
+</div>
+<div style="text-align: center; padding: 10px;">
+<h7 style="text-align: center; font-size: 1rem; color: #0284c7; margin-left: 20px; margin-bottom: 20px;">JOIN A TEAM <br>and collaborate on innovative solutions!</h7>
+</div>
+<div class="teams-container">
+  <div class="team-card">
+    <div class="team-title">Team Aquaid</div>
+    <div class="members">
+      <div class="member">pk.p</div>
+
+      <div class="member">rau</div>
+
+      <div class="member">asu</div>
+
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+    </div>
+    <button class="join-btn" onclick="openForm()">Join Team</button>
+  </div>
+
+  <div class="team-card">
+    <div class="team-title">Team Orion</div>
+    <div class="members">
+      <div class="member">X</div>
+      <div class="member">Y</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+    </div>
+    <button class="join-btn" onclick="openForm()">Join Team</button>
+  </div>
+
+  <div class="team-card">
+    <div class="team-title">Team Eclips</div>
+    <div class="members">
+      <div class="member">K</div>
+      <div class="member">L</div>
+      <div class="member">M</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+    </div>
+    <button class="join-btn" onclick="openForm()">Join Team</button>
+  </div>
+
+  <div class="team-card">
+    <div class="team-title">Team Nova</div>
+    <div class="members">
+      <div class="member">R</div>
+      <div class="member">S</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+    </div>
+    <button class="join-btn" onclick="openForm()">Join Team</button>
+  </div>
+
+  <div class="team-card">
+    <div class="team-title">Team Zenith</div>
+    <div class="members">
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+    </div>
+    <button class="join-btn" onclick="openForm()">Join Team</button>
+  </div>
+
+  <div class="team-card">
+    <div class="team-title">Team Zenith</div>
+    <div class="members">
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+      <div class="member empty">+</div>
+    </div>
+    <button class="join-btn" onclick="openForm()">Join Team</button>
+  </div>
+
+<div style="text-align: center; padding: 10px;">
+    <h4>Team name is temporary right now</h4>
+    <h7>it may be changed later as per the project statement</h7>
+    <h6>Stay tuned for updates!</h6>
+
+</div>
+
+<!-- Hidden Form -->
+<div id="joinForm">
+  <h2>Join a Team</h2>
+  <form method="post" name="submit-to-google-sheet">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your first name.." required>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+    
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your email.." required>
+    
+    <label for="phone" class="form-label">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="Your phone number.." required>
+    
+    <label for="gender" class="form-label">Gender</label>
+      <select id="genderSelect" name="gender" class="form-select">
+        <option value="male">male</option>
+        <option value="female">female</option>
+        <option value="other">other</option>
+      </select>
+
+      <label for="course" class="form-label">Course</label>
+      <select id="courseSelect" name="course" class="form-select">
+        <option value="foundation 1">foundation 1</option>
+        <option value="foundation 2">foundation 2</option>
+        <option value="diploma">diploma</option>
+      </select>
+       <!-- submit -->
+    <input type="submit" value="Submit" name="submit">
+    <p class="wait-message">wait til 10 seconds..  after submission</p>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+
+
+<script>
+  function openForm() {
+    document.getElementById('joinForm').style.display = 'block';
+  }
+  function closeForm() {
+    document.getElementById('joinForm').style.display = 'none';
+  }
+
+  // submission handling
+  document.querySelector('#joinForm form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle form submission
+  });
+
+  //google sheet integration
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzx-l3c0BYtQp1BVV7A1slVS3GDUQOzMayFQis0pIs8p75WNUqTQ23dK7IaB6obtNaRIA/exec'
+const form = document.forms['submit-to-google-sheet']
+let isSubmitting = false
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+
+  if (isSubmitting) {
+    return // agar already submit ho raha hai to don't do it again
+  }
+  isSubmitting = true
+
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => {
+      alert("Form submitted successfully ✅")
+      form.reset()
+    })
+    .catch(error => {
+      console.error('Error!', error.message)
+      alert("Something went wrong ❌")
+    })
+    .finally(() => {
+      // thoda delay ke baad allow kar do dobara submit
+      setTimeout(() => { isSubmitting = false }, 300000)
+    })
+})
+
+</script>
+
+</body>
+</html>
