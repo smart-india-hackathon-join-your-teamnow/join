@@ -17,13 +17,10 @@
   <div class="team-card">
     <div class="team-title">Team Aquaid</div>
     <div class="members">
-      <div class="member">PK.P</div>
-
-      <div class="member"style="background-color: #165a2a;">rau</div>
-
-      <div class="member">ASHU</div>
-      <div class="member">NEHA</div>
-      <div class="member empty">+</div>
+      <div class="member" onclick="showMemberDetails('Pk.p')">Pk.p</div>
+      <div class="member" onclick="showMemberDetails('Rau')" style="background-color: #225030;">Rau</div>
+      <div class="member" onclick="showMemberDetails('Asu')">Asu</div>
+      <div class="member" onclick="showMemberDetails('Neha')">Neha</div>
       <div class="member empty">+</div>
       <div class="member empty">+</div>
     </div>
@@ -33,10 +30,10 @@
   <div class="team-card">
     <div class="team-title">Team Orion</div>
     <div class="members">
-      <div class="member"style="background-color: #165a2a;">taniya</div>
-      <div class="member">Y</div>
-      <div class="member empty">+</div>
-      <div class="member empty">+</div>
+      <div class="member" onclick="showMemberDetails('Taniya')" style="background-color: #165a2a;">Taniya</div>
+      
+      <div class="member" onclick="showMemberDetails('Subham')">Subh..</div>
+      <div class="member" onclick="showMemberDetails('Pransh')">Pransh..</div>
       <div class="member empty">+</div>
       <div class="member empty">+</div>
     </div>
@@ -46,21 +43,24 @@
   <div class="team-card">
     <div class="team-title">Team Eclips</div>
     <div class="members">
-      <div class="member"style="background-color: #165a2a;">MRT</div>
-      <div class="member">L</div>
-      <div class="member">M</div>
-      <div class="member empty">+</div>
-      <div class="member empty">+</div>
+      <div class="member" onclick="showMemberDetails('MRT')" style="background-color: #165a2a;">Mrt..C</div>
+      <div class="member" onclick="showMemberDetails('Abhishek')">Abhi..</div>
+      <div class="member" onclick="showMemberDetails('Khamir')">Khamir</div>
+      <div class="member" onclick="showMemberDetails('Nishi')">Nishi</div>
+      <div class="member" onclick="showMemberDetails('Lalu')">Lalu</div>
+      
+      
+      
       <div class="member empty">+</div>
     </div>
     <button class="join-btn" onclick="openForm()">Join Team</button>
   </div>
 
   <div class="team-card">
-    <div class="team-title">Team Nova</div>
+    <div class="team-title" onclick="showMemberDetails('Team Nova')">Team Nova</div>
     <div class="members">
-      <div class="member"style="background-color: #165a2a;">khmir</div>
-      <div class="member">S</div>
+      <div class="member" onclick="showMemberDetails('')"style="background-color: #165a2a;">l</div>
+      <div class="member" onclick="showMemberDetails('S')">S</div>
       <div class="member empty">+</div>
       <div class="member empty">+</div>
       <div class="member empty">+</div>
@@ -70,7 +70,7 @@
   </div>
 
   <div class="team-card">
-    <div class="team-title">Team Zenith</div>
+    <div class="team-title" onclick="showMemberDetails('Team Zenith')">Team Zenith</div>
     <div class="members">
       <div class="member empty">+</div>
       <div class="member empty">+</div>
@@ -135,8 +135,9 @@
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
+<div id="memberDetails">
 
-
+</div>
 
 
 <script>
@@ -145,6 +146,28 @@
   }
   function closeForm() {
     document.getElementById('joinForm').style.display = 'none';
+  }
+
+  //member details popup
+  function showMemberDetails(memberName) {
+    const memberDetails = {
+      'Pk.p': 'NAME : PIYUSH KUMAR PATEL\nGENDER : MALE\nCOURSE - FOUNDATION II\nEMAIL- 25f22008896@ds.study.iitm.ac.in\nRole - FULL-STACK DEVELOPER, DATABASE MANAGEMENT, DASHBOARD DESIGNING AND API MANAGEMENT',
+      'Rau': 'NAME : RAUSHAN KUMAR\nGENDER : MALE\nCOURSE - FOUNDATION II\nEMAIL- 25f2004502@ds.study.iitm.ac.in\nRole - TEAM LEADER',
+      'Asu': 'NAME : ASHUTOSH KUMAR\nCOURSE - FOUNDATION II\nEMAIL- 25f2004502@ds.study.iitm.ac.in\nRole - FULL-STACK DEVELOPER',
+      'Neha': 'NAME : NEHA KUMARI\nGENDER : FEMALE\nCOURSE - FOUNDATION I\nEMAIL- 25f2004197@ds.study.iitm.ac.in\nRole - GRAPHIC DESIGNER',
+      'Taniya': 'NAME : TANIYA\nGENDER : FEMALE\nCOURSE - FOUNDATION II\nEMAIL- 25f2006343@ds.study.iitm.ac.in\nRole - TEAM LEADER, RESEARCHER',
+      'Abhishek': 'NAME : ABHISHEK\nGENDER : MALE\nCOURSE - DIPLOMA\nEMAIL- ak6128658@gmail.com\nRole - FRONTEND DEVELOPER',
+      'Subham': 'NAME : SUBHAM KUMAR\nGENDER : MALE\nCOURSE - FOUNDATION II\nEMAIL- 25f2003640@ds.study.iitm.ac.in\nRole - GRAPHIC DESIGNER',
+      'Pransh': 'NAME : PRANSHU SAMADHIYA\nGENDER : MALE\nCOURSE - FOUNDATION II\nEMAIL- 25f2006581@ds.study.iitm.ac.in\nRole - HTML CSS JAVASCRIPT WEB-DEVELOPER',
+      'MRT': 'NAME : MRITYUNJAY CHAKRABORTY\nGENDER : MALE\nCOURSE - FOUNDATION II\nEMAIL- 21f3001385@ds.study.iitm.ac.in\nRole - TEAM LEADER, DASHBOARD',
+      'Lalu': 'NAME : LALU\nGENDER : MALE\nCOURSE - FOUNDATION II\nEMAIL- 25f2006581@ds.study.iitm.ac.in\nRole - BACKEND DEVELOPER',
+      'Nishi': 'NAME : NISHI KUMARI\nGENDER : FEMALE\nCOURSE - FOUNDATION II\nEMAIL- 25f2006581@ds.study.iitm.ac.in\nRole - RESEARCHER',
+      'Khamir': 'NAME : KHAMIR\nGENDER : MALE\nEMAIL- 25f2006581@ds.study.iitm.ac.in\nRole - TEAM LEADER',
+      'S': 'NAME : S\nGENDER : MALE\nEMAIL- 25f2006581@ds.study.iitm.ac.in\nRole - BUSINESS ANALYST'
+    };
+
+    const details = memberDetails[memberName] || 'No details available for this member.';
+    alert(details);
   }
 
   // submission handling
